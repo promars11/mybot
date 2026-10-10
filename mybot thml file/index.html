@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Telegram-боты под ключ</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f5f8fb;--card:#fff;--text:#13202b;--muted:#5b6b78;--accent:#229ed9;--accent-t:#fff;--line:#dce5ec}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1218;--card:#121c25;--text:#e8f0f6;--muted:#92a5b4;--accent:#3fb4ec;--accent-t:#04141d;--line:#22323f}}
+:root[data-theme="dark"]{--bg:#0b1218;--card:#121c25;--text:#e8f0f6;--muted:#92a5b4;--accent:#3fb4ec;--accent-t:#04141d;--line:#22323f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.w{max-width:640px;margin:0 auto;padding:28px 20px 48px}
+h1{font-size:30px;line-height:1.2;margin:0 0 12px}
+h2{font-size:22px;margin:36px 0 12px}
+p{margin:0 0 12px;color:var(--muted)}
+.tag{display:inline-block;font-size:13px;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:3px 12px;margin-bottom:14px}
+.btn{display:block;text-align:center;background:var(--accent);color:var(--accent-t);font-weight:700;font-size:17px;padding:15px;border-radius:14px;text-decoration:none;margin-top:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}
+.card b{display:block;color:var(--text);margin-bottom:4px}
+.card span{color:var(--muted);font-size:15px}
+.price{font-size:36px;font-weight:800}
+.price small{font-size:15px;font-weight:400;color:var(--muted)}
+.hit{border:2px solid var(--accent)}
+ul{padding-left:20px;margin:10px 0;color:var(--text)}
+li{margin-bottom:5px;font-size:15px}
+ol{padding-left:20px;color:var(--text)}
+ol li{font-size:16px;margin-bottom:8px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 0}
+.foot{margin-top:36px;font-size:13px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="w">
+  <span class="tag">Разработка на заказ</span>
+  <h1>Telegram-бот для вашего бизнеса под ключ</h1>
+  <p>Бот принимает заявки, записывает клиентов, отвечает на вопросы и принимает оплату, пока вы занимаетесь делом. Срок от 2 дней.</p>
+  <a class="btn order" href="#">Заказать бота</a>
+
+  <h2>Что может бот</h2>
+  <div class="card"><b>Приём заявок и записи</b><span>Клиент выбирает услугу и время, вам приходит уведомление.</span></div>
+  <div class="card"><b>Каталог и заказы</b><span>Товары, корзина, оформление заказа прямо в Telegram.</span></div>
+  <div class="card"><b>Ответы на частые вопросы</b><span>Цены, адрес, режим работы, условия: бот отвечает сам.</span></div>
+  <div class="card"><b>Оплата и подписки</b><span>Подключение приёма платежей и доступ в закрытые каналы.</span></div>
+  <div class="card"><b>Рассылки</b><span>Акции и новости вашим клиентам в один клик.</span></div>
+
+  <h2>Создайте своего бота бесплатно</h2>
+  <div class="card hit">
+    <b>Бот-конструктор в Telegram</b>
+    <span>Ответьте на 6 вопросов о своём бизнесе и сразу получите готового бота для записи клиентов. Это бесплатно и занимает 3 минуты.</span>
+    <a class="btn ctor" href="#">Создать бота бесплатно</a>
+    <div class="cnote" style="display:none;margin-top:10px;font-size:14px;color:var(--muted);text-align:center">Конструктор скоро появится.</div>
+  </div>
+  <p>Нужна помощь с запуском на сервере или особые функции? Выберите тариф ниже.</p>
+
+  <h2>Тарифы</h2>
+  <div class="card hit">
+    <b>Бот с записью или каталогом</b>
+    <div class="price">100 ₽</div>
+    <ul><li>Меню, кнопки, ответы на вопросы</li><li>Запись на время или каталог с заказами</li><li>Рассылка клиентам</li><li>Срок 4-6 дней</li></ul>
+    <a class="btn paybtn" href="#" data-amount="100">Оплатить 100 ₽</a>
+  </div>
+  <div class="card">
+    <b>Бот с оплатой</b>
+    <div class="price">349 ₽</div>
+    <ul><li>Всё из тарифа выше</li><li>Приём платежей и подписки</li><li>Админ-панель для вас</li><li>Срок 7-10 дней</li></ul>
+    <a class="btn paybtn" href="#" data-amount="349">Оплатить 349 ₽</a>
+  </div>
+  <p>Нужно что-то особенное? Опишите задачу, и я назову цену и срок.</p>
+
+  <h2>Как это работает</h2>
+  <ol>
+    <li>Вы пишете, что нужно боту</li>
+    <li>Мы обсуждаем детали</li>
+    <li>Вы оплачиваете тариф и присылаете чек в Telegram</li>
+    <li>Я делаю бота и показываю результат</li>
+    <li>Вы принимаете работу, я запускаю бота</li>
+  </ol>
+
+  <h2>Как оплатить</h2>
+  <div class="card">
+    <b>Перевод по номеру телефона (Сбербанк, СБП)</b>
+    <div class="price" style="font-size:26px" id="phone">+7 989 451-29-02</div>
+    <span>Нажмите «Оплатить» у нужного тарифа, переведите сумму на этот номер и пришлите чек в Telegram. Для особых задач сначала обсудим цену в Telegram.</span>
+    <a class="btn" href="#" id="copy">Скопировать номер</a>
+    <div id="copied" style="display:none;margin-top:10px;font-size:14px;color:var(--muted);text-align:center">Номер скопирован</div>
+  </div>
+
+  <h2>Вопросы</h2>
+  <details><summary>Нужно ли что-то понимать в программировании?</summary><p>Нет. Вам достаточно описать задачу своими словами.</p></details>
+  <details><summary>А если нужны правки?</summary><p>Небольшие правки после сдачи входят в цену.</p></details>
+  <details><summary>Где будет работать бот?</summary><p>Я помогу запустить его на сервере, чтобы он работал круглосуточно.</p></details>
+
+  <a class="btn order" href="#">Написать в Telegram</a>
+  <div id="note" style="display:none;margin-top:10px;font-size:14px;color:var(--muted);text-align:center">Контакт скоро появится.</div>
+  <div class="foot">Telegram-боты под ключ</div>
+</div>
+<script>
+var TG_USERNAME = "snvsxz";
+var msg = encodeURIComponent("Здравствуйте! Хочу заказать Telegram-бота. Задача: ");
+document.querySelectorAll(".order").forEach(function(a){
+  if(TG_USERNAME){ a.href = "https://t.me/" + TG_USERNAME + "?text=" + msg; }
+  else { a.addEventListener("click", function(e){
+    e.preventDefault();
+    var n = a.nextElementSibling;
+    if(!n || !n.classList.contains("onote")){
+      n = document.createElement("div"); n.className = "onote";
+      n.style.cssText = "margin-top:10px;font-size:14px;color:var(--muted);text-align:center";
+      n.textContent = "Контакт для заказа ещё не добавлен. Скоро заработает.";
+      a.parentNode.insertBefore(n, a.nextSibling);
+    }
+  }); }
+});
+var CONSTRUCTOR_USERNAME = "";
+document.querySelectorAll(".ctor").forEach(function(a){
+  if(CONSTRUCTOR_USERNAME){ a.href = "https://t.me/" + CONSTRUCTOR_USERNAME; }
+  else { a.addEventListener("click", function(e){ e.preventDefault(); a.parentNode.querySelector(".cnote").style.display="block"; }); }
+});
+document.getElementById("copy").addEventListener("click", function(e){
+  e.preventDefault();
+  var n = "+79894512902";
+  try { navigator.clipboard.writeText(n); } catch(err) {}
+  document.getElementById("copied").style.display = "block";
+});
+document.querySelectorAll(".paybtn").forEach(function(a){
+  a.addEventListener("click", function(e){
+    e.preventDefault();
+    var nx = a.nextElementSibling;
+    if(nx && nx.classList.contains("paybox")){ nx.remove(); return; }
+    var amount = a.getAttribute("data-amount");
+    var box = document.createElement("div");
+    box.className = "paybox";
+    box.style.cssText = "margin-top:12px;padding:14px;border:1px dashed var(--accent);border-radius:12px;font-size:15px;color:var(--text)";
+    box.innerHTML = "<div>1. Переведите <b>" + amount + " ₽</b> по номеру телефона (Сбербанк, СБП):</div>" +
+      "<div style='font-size:22px;font-weight:800;margin:6px 0'>+7 989 451-29-02</div>" +
+      "<a href='#' class='cp' style='color:var(--accent);font-weight:600'>Скопировать номер</a> <span class='ok' style='color:var(--muted)'></span>" +
+      "<div style='margin-top:10px'>2. Пришлите чек и задачу мне в Telegram:</div>" +
+      "<a class='btn' style='margin-top:8px' href='https://t.me/" + TG_USERNAME + "?text=" + encodeURIComponent("Здравствуйте! Оплатил(а) " + amount + " ₽. Чек прикреплю. Задача: ") + "'>Отправить чек в Telegram</a>";
+    a.parentNode.insertBefore(box, a.nextSibling);
+    box.querySelector(".cp").addEventListener("click", function(ev){
+      ev.preventDefault();
+      try { navigator.clipboard.writeText("+79894512902"); } catch(err) {}
+      box.querySelector(".ok").textContent = "скопировано";
+    });
+  });
+});
+</script>
+</body>
+</html>
